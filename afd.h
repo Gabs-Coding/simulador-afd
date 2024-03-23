@@ -5,6 +5,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <errno.h>
+#include <string.h>
 
 /* #Número N de estados do autôomato
    #Estado Inicial
@@ -49,11 +51,13 @@ typedef struct afd {
 } AFD;
 
 // Funções e procedimentos para manipular a lista duplamente encadeada;
-void criar(ListaDuplamenteEncadeada *lde);
-bool eh_vazia(ListaDuplamenteEncadeada *lde);
-void inserir(ListaDuplamenteEncadeada *lde, Transicao transicao);
+ListaDuplamenteEncadeada *__criar(ListaDuplamenteEncadeada *lde);
+bool __eh_vazia(ListaDuplamenteEncadeada *lde);
+void __inserir(ListaDuplamenteEncadeada *lde, Transicao transicao);
+Transicao *__novo_no(Transicao transicao);
 
 // Funções e procedimentos para manipular o Autômato Finito Determinístico;
 bool tem_transicao(ListaDuplamenteEncadeada *lde, Transicao transicao);
+void registrar_transicoes(ListaDuplamenteEncadeada *lde, Definicao *definicao);
 
 #endif
